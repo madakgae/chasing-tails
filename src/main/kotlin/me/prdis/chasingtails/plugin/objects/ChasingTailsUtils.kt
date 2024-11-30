@@ -141,7 +141,7 @@ object ChasingTailsUtils {
             }
 
             gamePlayer.master?.let {
-                getAttribute(Attribute.GENERIC_MAX_HEALTH)?.baseValue = 10.0
+                getAttribute(Attribute.MAX_HEALTH)?.baseValue = 10.0
             }
         }
 

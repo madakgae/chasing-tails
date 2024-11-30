@@ -145,7 +145,7 @@ class GamePlayer(val uuid: UUID) {
         scoreboard.getPlayerTeam(slave.offlinePlayer)?.unregister()
         scoreboard.getPlayerTeam(offlinePlayer)?.addPlayer(slave.player)
 
-        player.getAttribute(Attribute.GENERIC_MAX_HEALTH)?.baseValue = (20 - (
+        player.getAttribute(Attribute.MAX_HEALTH)?.baseValue = (20 - (
                 (gamePlayers.count { it.master == this }) * 2
                 )).toDouble()
 
@@ -160,7 +160,7 @@ class GamePlayer(val uuid: UUID) {
 
     fun temporarilyKillPlayer(duration: Int) {
         player.apply {
-            health = getAttribute(Attribute.GENERIC_MAX_HEALTH)?.value ?: 20.0
+            health = getAttribute(Attribute.MAX_HEALTH)?.value ?: 20.0
             foodLevel = 20
             saturation = 3F
             exhaustion = 0F
@@ -177,7 +177,7 @@ class GamePlayer(val uuid: UUID) {
 
     private fun initializeAsSlave() = player.apply {
         health = 10.0
-        getAttribute(Attribute.GENERIC_MAX_HEALTH)?.baseValue = 10.0
+        getAttribute(Attribute.MAX_HEALTH)?.baseValue = 10.0
 
         foodLevel = 20
         saturation = 3F

@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "me.prdis"
-version = "1.0.0"
+version = "1.0.1"
 val codeName = "chasingtails"
 
 repositories {
@@ -26,9 +26,9 @@ dependencies {
     compileOnly(libs.mccoroutines)
     compileOnly(libs.mccoroutinesCore)
 
-    paperLibrary(libs.coroutines)
-    paperLibrary(libs.mccoroutines)
-    paperLibrary(libs.mccoroutinesCore)
+    bukkitLibrary(libs.coroutines)
+    bukkitLibrary(libs.mccoroutines)
+    bukkitLibrary(libs.mccoroutinesCore)
 }
 
 kotlin {
@@ -55,16 +55,12 @@ idea {
     }
 }
 
-paper {
+bukkit {
     name = rootProject.name
     version = rootProject.version.toString()
     author = "Paradise Dev Team"
 
-    main = "${project.group}.${codeName}.plugin.${codeName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}Plugin"
-    loader = "${project.group}.${codeName}.plugin.loader.${codeName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}PluginLoader"
-
-    generateLibrariesJson = true
-    foliaSupported = false
+    main = "${project.group}.${codeName}.plugin.${codeName.replaceFirstChar { it.titlecase() }}Plugin"
 
     apiVersion = "1.21"
 }
